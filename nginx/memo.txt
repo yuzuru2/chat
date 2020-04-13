@@ -1,0 +1,2 @@
+find /home/vagrant/chat/nginx/file/html -type d -exec chmod 755 {} +
+find /home/vagrant/chat/nginx/file/html -type f -exec chmod 604 {} +

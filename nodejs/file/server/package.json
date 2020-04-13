@@ -1,0 +1,42 @@
+{
+  "name": "chat_server",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig_build.json",
+    "test": "npm run test:mongodb && npm run test:jwt && npm run test:logic",
+    "test:mongodb": "jest --config jest.mongodb.config.js --detectOpenHandles --forceExit",
+    "test:jwt": "jest --config jest.jwt.config.js --detectOpenHandles --forceExit",
+    "test:logic": "jest --config jest.logic.config.js --detectOpenHandles --forceExit",
+    "pro": "pm2 startOrGracefulReload --no-daemon processes.json",
+    "ts": "ts-node -r tsconfig-paths/register"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/fs-extra": "^8.0.0",
+    "@types/jest": "^24.0.16",
+    "@types/jsonwebtoken": "^8.3.4",
+    "@types/mongodb": "^3.3.6",
+    "@types/node": "^12.6.9",
+    "@types/node-cron": "^2.0.2",
+    "@types/socket.io": "^2.1.4",
+    "file-type": "^12.3.0",
+    "fs-extra": "^8.1.0",
+    "jest": "^24.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "mongodb": "^3.3.2",
+    "node-cron": "^2.0.3",
+    "pm2": "^3.5.1",
+    "saslprep": "^1.0.3",
+    "socket.io": "^2.3.0",
+    "socket.io-redis": "^5.2.0",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.3.0",
+    "tsconfig-paths": "^3.8.0",
+    "typescript": "^3.6.4"
+  }
+}

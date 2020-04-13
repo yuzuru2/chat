@@ -1,0 +1,4 @@
+nodejs/file/front/node_modules
+nodejs/file/server/node_modules
+mongodb/data/*
+!.gitkeep

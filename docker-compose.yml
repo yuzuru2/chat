@@ -1,0 +1,57 @@
+version: '3'
+services:
+
+  # フロントエンドサーバ
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    ports:
+      - "${NGINX_PORT}:8080"
+    volumes:
+      - ./nodejs/file/front/dist:/usr/share/nginx/html
+      - ./nodejs/file/server/up/:/usr/share/nginx/html/up
+    environment:
+      - TZ=Asia/Tokyo
+    tty: true
+    restart: always
+
+  # redis socket.ioを使う時に使う
+  redis:
+    image: "redis:latest"
+    container_name: redis
+    volumes:
+      - ./redis/data:/data
+    depends_on:
+      - nginx
+    tty: true
+    restart: always
+
+  # mongodb
+  mongodb:
+    build: ./mongodb
+    container_name: mongodb
+    volumes:
+      - ./mongodb/data:/data/db
+      - ./mongodb/mongod.conf:/etc/mongod.conf
+      - ./mongodb/init/:/docker-entrypoint-initdb.d/
+    command: mongod --config /etc/mongod.conf
+    tty: true
+    restart: always
+
+  # バックエンドサーバ
+  nodejs:
+    build: ./nodejs
+    container_name: nodejs
+    ports:
+      - "${BACKEND_PORT}:3000"
+    command: [sh, -c, /wait && cd /src/server && npm run pro]
+    depends_on:
+      - mongodb
+    environment:
+      WAIT_HOSTS: mongodb:27017, redis:6379
+    volumes:
+      - ./nodejs/file:/src
+    env_file:
+      - .env
+    tty: true
+    restart: always
