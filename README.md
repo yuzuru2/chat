@@ -1,16 +1,16 @@
-# いつちゃ オープンチャット
+## いつちゃ オープンチャット
 
-# このリポジトリは何？
+## このリポジトリは何？
 
 web チャットのポートフォリオです。<br />
 シングルページアプリケーション(SPA)です。
 
-# 成果物
+## 成果物
 
 <a href="https://chat4.itsumen.com">https://chat4.itsumen.com</a> <br /><br />
 <img src="https://github.com/yuzuru2/chat/blob/master/top.png" width="200">
 
-# 機能
+## 機能
 
 - グループチャット
 - 既読機能
@@ -21,15 +21,15 @@ web チャットのポートフォリオです。<br />
   - サイコロと入力する → サイコロを振る
   - おみくじと入力 → おみくじをひく
 
-# 開発環境
+## 開発環境
 
 - centos7
 - docker <br/>
 - docker-compose <br/>
 
-# 使用ライブラリ周り
+## 使用ライブラリ周り
 
-## フロントエンド
+### フロントエンド
 
 - typescript
 - react
@@ -37,7 +37,7 @@ web チャットのポートフォリオです。<br />
 - styled-components
 - parcel
 
-## バックエンド
+### バックエンド
 
 - typescript
 - nodejs
@@ -52,7 +52,7 @@ web チャットのポートフォリオです。<br />
 
 - jest
 
-# set up
+## set up
 
 ```
 git clone https://github.com/yuzuru2/chat.git chat
@@ -77,12 +77,12 @@ http://お使いのサーバのIP:NGINX_PORT
 sudo docker-compose down -v
 ```
 
-# test
+## test
 
 ```
 sudo docker exec -it nodejs sh -c "cd server && npm test"
 ```
 
-# 注意事項
+## 注意事項
 
 アプリの使用は自己責任でお願いします。
