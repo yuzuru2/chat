@@ -5,11 +5,6 @@
 web チャットのポートフォリオです。<br />
 シングルページアプリケーション(SPA)です。
 
-## 成果物
-
-<a href="https://chat4.itsumen.com">https://chat4.itsumen.com</a> <br /><br />
-<img src="https://github.com/yuzuru2/chat/blob/master/top.png" width="200">
-
 ## 機能
 
 - グループチャット
